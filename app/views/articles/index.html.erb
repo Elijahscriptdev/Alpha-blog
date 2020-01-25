@@ -13,8 +13,8 @@
           <div class="article-body font-italic font-weight-light">
             <%= truncate(article.description, length: 100) %>
             <div>
-            <small class="text-success font-small">Created by: <%= article.user.username %>,
-                   <%= time_ago_in_words(article.created_at) %> ago,
+            <small class="text-success font-small">Created by: <%= article.user.username %>  |  
+                   <%= time_ago_in_words(article.created_at) %> ago  |  
                    last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
             </div>
           </div>
