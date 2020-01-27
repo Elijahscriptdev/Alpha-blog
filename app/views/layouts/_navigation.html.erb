@@ -10,8 +10,20 @@
         <%= link_to "View Articles", articles_path, class: "nav-link", id: "article_all" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <%= link_to "View Users", users_path, class: "nav-link" %>
       </li>
+      <% if logged_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Actions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -21,11 +33,11 @@
     <% if logged_in? %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Actions
+          Your Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
-          <a class="dropdown-item" href="#">Another action</a>
+          <%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
