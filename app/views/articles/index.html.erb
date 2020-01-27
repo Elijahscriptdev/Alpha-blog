@@ -1,4 +1,10 @@
 
  <h1 class="text-center">Listing all articles<h1>
-
+ <div class=" pagination justify-content-end">
+    <small><%= will_paginate %></small>
+ </div>
+ 
  <%= render 'article', obj: @articles %>
+ <div class="pagination justify-content-end">
+    <small><%= will_paginate %></small>
+ </div>

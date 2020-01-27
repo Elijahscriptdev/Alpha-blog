@@ -7,12 +7,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        
         <%= link_to "View Articles", articles_path, class: "nav-link", id: "article_all" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <ul class="nav navbar-nav navbar-right mx-1">
+    <% if logged_in? %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Actions
@@ -24,12 +30,16 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <%= link_to 'Log out', logout_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0 nav-link" %>
       </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <% else %>
+      <li class="nav-item mx-1">
+        <%= link_to 'Log in', login_path, class: "btn btn-outline-success my-2 my-sm-0 nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'signup', signup_path, class: "btn btn-outline-success my-2 my-sm-0 nav-link" %>
+      </li>
+      <% end %>
+      </ul>
   </div>
 </nav>

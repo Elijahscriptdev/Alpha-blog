@@ -1,6 +1,9 @@
 <h1 class="text-center">All Alpha Bloggers</h1>
 
 <div class="container text-center">
+<div class=" pagination justify-content-end">
+    <small><%= will_paginate %></small>
+ </div>
     <% @users.each do |user| %>
       <ul  class="listing">
         <div class="row">
@@ -16,4 +19,7 @@
         </div>
       </ul>
     <% end %>
+    <div class=" pagination justify-content-end">
+    <small><%= will_paginate %></small>
+ </div>
 </div> 
